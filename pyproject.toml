@@ -1,0 +1,8 @@
+[project]
+name = "student_depression_project"
+version = "0.1.0"
+description = "ML based system to detect student depression"
+authors = [
+    {name = "Rushani|Group07|ML", email = "rushani824@gmail.com"}
+]
+requires-python = ">=3.9"
