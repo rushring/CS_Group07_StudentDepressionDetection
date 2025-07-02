@@ -30,7 +30,7 @@ To get started, install the following:
 
    ```bash
    git clone https://github.com/rushring/CS_Group07_StudentDepressionDetection.git
-   cd student-depression-ml
+   cd CS_Group07_StudentDepressionDetection
    code .
 
 #   Dev Container Setup
