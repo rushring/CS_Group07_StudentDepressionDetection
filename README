@@ -1,3 +1,99 @@
 # student_depression_project
 
 ML based system to detect student depression
+
+##  Project Environment Setup
+
+We use **Docker + VS Code Dev Containers + Mamba (Conda)** to create a consistent Python environment for all members.
+
+###  Prerequisites
+
+To get started, install the following:
+
+- **[Docker Desktop](https://www.docker.com/products/docker-desktop)**
+- **[Visual Studio Code](https://code.visualstudio.com)**
+- **VS Code Extension**: `Dev Containers`  
+  (Install from Extensions panel or [here](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers))
+
+---
+
+##  Folder Structure
+
+![alt text](image.png)
+
+
+---
+
+##  How to Use This Environment
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/your-username/student-depression-ml.git
+   cd student-depression-ml
+   code .
+
+#   Dev Container Setup
+
+##  Open in Dev Container (One Click)
+
+Once you open this project in VS Code, you will see a prompt:
+
+>  **"Folder contains a Dev Container configuration..."**
+
+Click: **Reopen in Container**
+
+If not prompted:
+
+- Press `F1` → Search:  
+  `Dev Containers: Reopen in Container`
+
+---
+
+##  Wait for Setup to Complete
+
+Docker will build the container with:
+
+-  Python 3.11  
+-  Pandas, NumPy, Matplotlib, Seaborn  
+-  Scikit-learn  
+-  JupyterLab & Notebook  
+-  Gradio (for UI)  
+-  Mamba (fast Conda alternative)
+
+After setup, the terminal will show:
+
+>  Environment ready!
+
+---
+
+##  Working with Notebooks
+
+- Place your notebooks inside the `notebooks/` folder
+- Open `.ipynb` files in VS Code
+- Select the kernel:
+
+>  `Python 3 (ml-env)`
+
+- Run your cells as usual.
+
+---
+
+##  Collaboration Workflow
+
+Each member works on a different model (e.g., Logistic Regression, SVM, etc.)
+
+###  Pull the latest changes regularly:
+
+```bash
+git pull
+git add .
+git commit -m "your message"
+git push
+```
+
+### Export the environment (after installing new packages):
+```bash
+conda env export --from-history > environment.yml
+
+```
