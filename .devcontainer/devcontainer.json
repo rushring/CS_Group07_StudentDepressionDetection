@@ -1,0 +1,20 @@
+{
+  "name": "stu-depression-ml-dev-env",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "eamodio.gitlens"
+      ]
+    }
+  },
+  "postCreateCommand": "echo 'Environment ready!'",
+  "remoteUser": "root"
+}
