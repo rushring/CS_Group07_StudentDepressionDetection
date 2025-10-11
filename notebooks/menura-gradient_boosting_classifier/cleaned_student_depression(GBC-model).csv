@@ -1,4 +1,4 @@
-Gender,Age,Academic_Pressure,CGPA,Study_Satisfaction,Sleep_Duration,Dietary_Habits,Degree,Suicidal_Thoughts,Study_Hours,Financial_Stress,Mental_Illness_History,Depression
+Gender,Age,Academic_Pressure,CGPA,Study_Satisfaction,Sleep_Duration,Dietary_Habits,Degree,Suicidal Thoughts,Study_Hours,Financial_Stress,Mental Illness History,Depression
 Male,33.0,5.0,8.97,2.0,5-6 hours,Healthy,B.Pharm,Yes,3.0,1.0,No,1
 Female,24.0,2.0,5.9,5.0,5-6 hours,Moderate,BSc,No,3.0,2.0,Yes,0
 Male,31.0,3.0,7.03,5.0,Less than 5 hours,Healthy,BA,No,9.0,1.0,Yes,0
@@ -1959,6 +1959,7 @@ Female,21.0,5.0,7.83,2.0,Less than 5 hours,Unhealthy,B.Ed,Yes,12.0,2.0,Yes,1
 Male,28.0,5.0,5.8,5.0,5-6 hours,Healthy,M.Tech,No,10.0,3.0,Yes,0
 Female,22.0,3.0,6.89,5.0,5-6 hours,Unhealthy,B.Ed,Yes,2.0,3.0,Yes,1
 Female,24.0,2.0,6.28,3.0,More than 8 hours,Healthy,BA,Yes,0.0,1.0,No,0
+Female,30.0,3.0,5.42,2.0,Others,Unhealthy,B.Ed,Yes,1.0,2.0,No,0
 Female,31.0,2.0,7.53,5.0,Less than 5 hours,Moderate,ME,No,7.0,3.0,No,0
 Female,23.0,3.0,5.59,3.0,5-6 hours,Healthy,B.Tech,Yes,5.0,3.0,Yes,1
 Male,27.0,3.0,6.28,4.0,Less than 5 hours,Moderate,B.Ed,No,11.0,1.0,No,0
@@ -3797,6 +3798,7 @@ Female,24.0,2.0,7.09,3.0,More than 8 hours,Unhealthy,BSc,Yes,7.0,5.0,No,1
 Male,28.0,4.0,8.58,4.0,Less than 5 hours,Healthy,MD,Yes,11.0,5.0,No,1
 Female,32.0,3.0,9.96,1.0,Less than 5 hours,Moderate,LLM,Yes,2.0,3.0,No,0
 Female,23.0,3.0,6.16,3.0,More than 8 hours,Healthy,MCA,Yes,10.0,1.0,Yes,1
+Female,18.0,3.0,6.03,4.0,Others,Unhealthy,BA,Yes,12.0,5.0,No,1
 Female,26.0,3.0,5.97,5.0,More than 8 hours,Moderate,BE,Yes,10.0,5.0,Yes,0
 Male,28.0,3.0,7.77,5.0,Less than 5 hours,Moderate,MSc,No,9.0,3.0,No,0
 Female,20.0,2.0,9.93,4.0,5-6 hours,Healthy,Class 12,Yes,10.0,3.0,Yes,1
@@ -3972,6 +3974,7 @@ Female,20.0,4.0,6.17,3.0,Less than 5 hours,Healthy,Class 12,Yes,0.0,4.0,Yes,1
 Male,20.0,4.0,8.14,4.0,More than 8 hours,Unhealthy,Class 12,Yes,8.0,4.0,No,1
 Female,32.0,5.0,5.56,2.0,7-8 hours,Moderate,MA,Yes,8.0,4.0,No,1
 Female,28.0,1.0,7.64,4.0,5-6 hours,Unhealthy,MHM,Yes,6.0,4.0,Yes,0
+Female,27.0,4.0,5.08,5.0,Others,Healthy,M.Tech,Yes,8.0,5.0,Yes,1
 Male,18.0,3.0,8.64,1.0,Less than 5 hours,Moderate,Class 12,Yes,9.0,2.0,No,1
 Female,21.0,5.0,5.11,5.0,5-6 hours,Unhealthy,B.Arch,Yes,10.0,4.0,Yes,1
 Male,28.0,1.0,9.96,4.0,Less than 5 hours,Healthy,B.Ed,No,7.0,1.0,No,0
@@ -4521,6 +4524,7 @@ Female,21.0,3.0,8.98,2.0,7-8 hours,Moderate,B.Com,Yes,6.0,4.0,Yes,1
 Female,22.0,5.0,7.77,4.0,Less than 5 hours,Healthy,B.Com,Yes,9.0,5.0,Yes,1
 Male,19.0,5.0,8.09,3.0,5-6 hours,Moderate,Class 12,Yes,2.0,1.0,Yes,1
 Male,21.0,1.0,7.1,5.0,5-6 hours,Moderate,MSc,No,11.0,1.0,No,0
+Female,22.0,4.0,6.92,3.0,Others,Moderate,MCA,Yes,3.0,3.0,Yes,1
 Male,33.0,3.0,8.94,5.0,5-6 hours,Unhealthy,BSc,No,4.0,3.0,Yes,1
 Female,26.0,2.0,6.38,4.0,5-6 hours,Healthy,MBBS,Yes,9.0,1.0,Yes,0
 Male,25.0,3.0,8.61,3.0,Less than 5 hours,Healthy,M.Tech,Yes,10.0,5.0,Yes,1
@@ -5510,6 +5514,7 @@ Male,33.0,3.0,8.91,5.0,Less than 5 hours,Healthy,M.Tech,Yes,12.0,3.0,No,1
 Female,24.0,5.0,9.21,1.0,7-8 hours,Moderate,LLB,No,0.0,5.0,Yes,1
 Male,22.0,1.0,6.78,1.0,Less than 5 hours,Moderate,B.Com,Yes,12.0,2.0,No,0
 Female,30.0,5.0,8.28,2.0,Less than 5 hours,Moderate,BCA,Yes,7.0,1.0,No,1
+Female,31.0,2.0,7.27,5.0,Others,Healthy,B.Arch,No,3.0,1.0,No,0
 Male,23.0,4.0,9.72,5.0,Less than 5 hours,Moderate,MA,Yes,12.0,3.0,Yes,1
 Female,28.0,3.0,5.8,3.0,Less than 5 hours,Healthy,BHM,No,6.0,5.0,No,0
 Female,28.0,5.0,8.69,2.0,7-8 hours,Unhealthy,BSc,Yes,10.0,5.0,Yes,1
@@ -5667,6 +5672,7 @@ Female,25.0,3.0,8.04,4.0,Less than 5 hours,Unhealthy,M.Ed,No,10.0,3.0,No,0
 Male,18.0,4.0,6.89,4.0,More than 8 hours,Healthy,Class 12,Yes,6.0,5.0,Yes,1
 Female,21.0,3.0,8.62,1.0,7-8 hours,Healthy,MSc,Yes,5.0,5.0,No,1
 Male,30.0,5.0,9.93,4.0,Less than 5 hours,Unhealthy,LLB,No,10.0,5.0,No,0
+Male,23.0,3.0,9.98,5.0,Less than 5 hours,Others,B.Com,Yes,4.0,5.0,No,1
 Female,22.0,5.0,8.9,5.0,More than 8 hours,Moderate,M.Com,Yes,12.0,5.0,Yes,1
 Male,18.0,4.0,7.8,4.0,7-8 hours,Unhealthy,Class 12,Yes,10.0,4.0,No,1
 Female,18.0,4.0,8.52,2.0,More than 8 hours,Moderate,Class 12,No,4.0,1.0,No,0
@@ -5768,6 +5774,7 @@ Female,19.0,3.0,8.92,2.0,7-8 hours,Unhealthy,Class 12,Yes,7.0,4.0,No,1
 Female,21.0,3.0,8.7,4.0,Less than 5 hours,Moderate,MBA,No,12.0,1.0,Yes,0
 Male,25.0,4.0,8.74,1.0,7-8 hours,Unhealthy,B.Ed,Yes,12.0,4.0,Yes,1
 Female,25.0,2.0,7.53,4.0,5-6 hours,Unhealthy,BHM,No,12.0,4.0,No,0
+Male,23.0,5.0,8.52,4.0,Others,Moderate,BE,Yes,12.0,4.0,Yes,1
 Female,33.0,4.0,8.74,3.0,5-6 hours,Moderate,BE,Yes,8.0,3.0,Yes,1
 Female,31.0,3.0,7.8,4.0,7-8 hours,Healthy,MBBS,No,5.0,2.0,Yes,0
 Female,24.0,4.0,8.4,3.0,5-6 hours,Unhealthy,BCA,Yes,3.0,1.0,Yes,1
@@ -6721,6 +6728,7 @@ Male,18.0,4.0,7.94,3.0,More than 8 hours,Healthy,Class 12,Yes,10.0,4.0,No,1
 Male,24.0,2.0,8.7,3.0,Less than 5 hours,Unhealthy,B.Arch,No,6.0,2.0,No,0
 Female,28.0,2.0,7.94,5.0,Less than 5 hours,Healthy,MSc,Yes,2.0,1.0,No,0
 Male,32.0,4.0,9.43,5.0,7-8 hours,Unhealthy,BA,Yes,0.0,1.0,No,1
+Male,20.0,3.0,6.37,2.0,Others,Unhealthy,BSc,No,10.0,1.0,No,0
 Male,27.0,4.0,6.21,4.0,Less than 5 hours,Unhealthy,BE,Yes,6.0,5.0,No,1
 Male,34.0,5.0,9.24,2.0,5-6 hours,Moderate,B.Tech,Yes,10.0,5.0,No,1
 Female,24.0,2.0,8.04,4.0,Less than 5 hours,Healthy,MA,No,1.0,1.0,Yes,0
@@ -6872,6 +6880,7 @@ Male,29.0,4.0,9.25,4.0,5-6 hours,Moderate,B.Pharm,Yes,4.0,2.0,No,0
 Male,19.0,3.0,6.21,1.0,Less than 5 hours,Moderate,Class 12,Yes,12.0,4.0,Yes,1
 Male,19.0,5.0,8.52,2.0,7-8 hours,Moderate,Class 12,Yes,10.0,3.0,Yes,1
 Male,31.0,1.0,8.04,4.0,Less than 5 hours,Unhealthy,B.Ed,Yes,5.0,5.0,Yes,1
+Male,18.0,1.0,6.05,5.0,7-8 hours,Others,Class 12,No,4.0,4.0,No,0
 Female,25.0,3.0,6.17,4.0,5-6 hours,Unhealthy,B.Pharm,Yes,10.0,3.0,Yes,0
 Female,18.0,2.0,6.7,3.0,5-6 hours,Unhealthy,Class 12,No,8.0,2.0,Yes,0
 Male,21.0,2.0,5.27,4.0,5-6 hours,Healthy,MCA,Yes,11.0,2.0,No,1
@@ -7675,6 +7684,7 @@ Male,28.0,5.0,8.0,2.0,Less than 5 hours,Unhealthy,B.Ed,Yes,1.0,5.0,Yes,1
 Male,29.0,4.0,8.14,3.0,5-6 hours,Moderate,MD,Yes,0.0,2.0,No,1
 Female,19.0,5.0,5.79,3.0,Less than 5 hours,Unhealthy,Class 12,Yes,10.0,5.0,No,1
 Male,27.0,5.0,5.58,3.0,Less than 5 hours,Moderate,LLM,Yes,6.0,2.0,Yes,1
+Male,31.0,3.0,8.21,4.0,Others,Moderate,BA,No,2.0,3.0,No,0
 Female,29.0,5.0,8.04,3.0,Less than 5 hours,Unhealthy,B.Ed,Yes,8.0,4.0,No,1
 Male,18.0,5.0,9.44,1.0,7-8 hours,Healthy,Class 12,Yes,1.0,4.0,No,1
 Female,28.0,3.0,9.44,4.0,7-8 hours,Unhealthy,MBA,Yes,5.0,3.0,Yes,1
@@ -7853,6 +7863,7 @@ Male,29.0,5.0,5.69,5.0,More than 8 hours,Unhealthy,MCA,No,6.0,1.0,Yes,0
 Male,24.0,5.0,9.31,2.0,Less than 5 hours,Moderate,B.Pharm,Yes,4.0,5.0,Yes,1
 Female,20.0,5.0,8.97,1.0,More than 8 hours,Unhealthy,Class 12,No,6.0,4.0,Yes,1
 Female,25.0,5.0,8.96,1.0,More than 8 hours,Moderate,B.Arch,Yes,12.0,3.0,No,1
+Female,28.0,4.0,6.38,5.0,Others,Moderate,M.Ed,No,8.0,3.0,No,0
 Male,26.0,3.0,8.04,2.0,Less than 5 hours,Unhealthy,BCA,No,12.0,1.0,No,0
 Male,21.0,2.0,5.41,1.0,7-8 hours,Healthy,B.Com,No,11.0,1.0,No,0
 Male,27.0,3.0,5.64,4.0,More than 8 hours,Moderate,BSc,No,1.0,1.0,No,0
@@ -8240,6 +8251,7 @@ Female,33.0,2.0,9.93,4.0,Less than 5 hours,Moderate,M.Tech,No,1.0,3.0,No,0
 Female,24.0,5.0,9.21,3.0,Less than 5 hours,Healthy,BA,Yes,3.0,1.0,Yes,1
 Female,29.0,1.0,5.89,3.0,Less than 5 hours,Moderate,B.Com,No,0.0,2.0,Yes,0
 Male,28.0,1.0,7.5,2.0,5-6 hours,Healthy,M.Com,Yes,0.0,2.0,No,0
+Female,21.0,2.0,7.28,4.0,Less than 5 hours,Others,B.Pharm,Yes,0.0,3.0,Yes,0
 Male,27.0,5.0,8.21,5.0,Less than 5 hours,Unhealthy,LLB,Yes,8.0,5.0,Yes,1
 Female,29.0,3.0,5.32,4.0,7-8 hours,Healthy,B.Com,No,4.0,2.0,Yes,0
 Male,23.0,4.0,9.63,5.0,More than 8 hours,Moderate,B.Com,Yes,11.0,5.0,Yes,1
@@ -8432,6 +8444,7 @@ Female,20.0,5.0,7.48,4.0,5-6 hours,Moderate,Class 12,Yes,11.0,1.0,Yes,1
 Female,33.0,4.0,9.92,1.0,7-8 hours,Unhealthy,MCA,Yes,10.0,3.0,Yes,1
 Female,18.0,5.0,7.92,2.0,More than 8 hours,Moderate,Class 12,Yes,9.0,5.0,No,1
 Male,30.0,3.0,5.11,4.0,7-8 hours,Moderate,BCA,No,1.0,5.0,No,0
+Female,32.0,4.0,9.54,4.0,5-6 hours,Others,B.Ed,Yes,4.0,2.0,No,1
 Male,24.0,2.0,7.77,4.0,5-6 hours,Unhealthy,MCA,No,1.0,5.0,No,0
 Female,28.0,5.0,9.84,2.0,More than 8 hours,Moderate,B.Ed,Yes,7.0,5.0,Yes,1
 Male,19.0,3.0,8.11,1.0,7-8 hours,Moderate,Class 12,Yes,7.0,4.0,No,1
@@ -11720,6 +11733,7 @@ Male,34.0,2.0,8.04,4.0,5-6 hours,Moderate,M.Tech,No,12.0,2.0,No,0
 Male,31.0,3.0,5.08,4.0,5-6 hours,Unhealthy,B.Ed,Yes,8.0,5.0,No,1
 Male,19.0,1.0,9.88,4.0,Less than 5 hours,Healthy,Class 12,No,9.0,5.0,Yes,0
 Male,26.0,3.0,9.74,4.0,5-6 hours,Unhealthy,B.Com,Yes,8.0,4.0,No,1
+Male,34.0,5.0,9.04,1.0,More than 8 hours,Others,B.Tech,Yes,4.0,5.0,Yes,1
 Male,29.0,5.0,9.67,2.0,7-8 hours,Healthy,MSc,No,0.0,2.0,No,1
 Male,34.0,1.0,7.83,5.0,7-8 hours,Unhealthy,BBA,Yes,8.0,5.0,No,1
 Male,28.0,3.0,8.11,4.0,Less than 5 hours,Healthy,BE,No,1.0,2.0,No,0
@@ -12734,6 +12748,7 @@ Female,22.0,1.0,7.09,2.0,More than 8 hours,Moderate,BHM,No,12.0,1.0,Yes,0
 Female,31.0,5.0,5.52,5.0,5-6 hours,Healthy,M.Ed,Yes,3.0,3.0,No,1
 Female,26.0,2.0,7.64,5.0,More than 8 hours,Unhealthy,MBBS,No,11.0,2.0,Yes,0
 Male,19.0,3.0,6.16,3.0,More than 8 hours,Healthy,Class 12,Yes,6.0,4.0,No,1
+Female,23.0,2.0,6.91,5.0,5-6 hours,Others,M.Pharm,No,6.0,3.0,No,1
 Male,26.0,3.0,7.46,2.0,5-6 hours,Unhealthy,BCA,Yes,0.0,1.0,Yes,1
 Male,19.0,5.0,9.67,1.0,7-8 hours,Unhealthy,Class 12,Yes,8.0,3.0,Yes,1
 Female,22.0,1.0,6.16,4.0,7-8 hours,Moderate,MSc,Yes,10.0,2.0,No,0
@@ -12903,6 +12918,7 @@ Male,28.0,1.0,5.41,2.0,7-8 hours,Healthy,MBBS,Yes,3.0,4.0,Yes,0
 Male,33.0,4.0,7.25,4.0,More than 8 hours,Moderate,BHM,No,11.0,4.0,No,0
 Female,23.0,5.0,7.1,3.0,Less than 5 hours,Healthy,B.Com,Yes,11.0,2.0,No,1
 Female,19.0,3.0,5.87,5.0,5-6 hours,Unhealthy,Class 12,No,1.0,2.0,Yes,0
+Male,28.0,2.0,7.85,4.0,Others,Unhealthy,BA,Yes,10.0,4.0,No,1
 Male,29.0,3.0,7.88,2.0,5-6 hours,Unhealthy,M.Tech,Yes,3.0,5.0,Yes,1
 Female,24.0,1.0,5.57,3.0,7-8 hours,Healthy,MBBS,Yes,9.0,5.0,No,0
 Male,25.0,5.0,5.77,1.0,Less than 5 hours,Unhealthy,B.Arch,No,5.0,5.0,Yes,1
@@ -13726,6 +13742,7 @@ Female,28.0,1.0,8.59,5.0,More than 8 hours,Unhealthy,MBA,No,9.0,4.0,No,0
 Female,30.0,3.0,9.1,3.0,7-8 hours,Unhealthy,MSc,Yes,1.0,2.0,No,1
 Female,22.0,4.0,7.39,3.0,5-6 hours,Moderate,BCA,Yes,3.0,2.0,Yes,0
 Male,29.0,1.0,8.24,2.0,Less than 5 hours,Moderate,M.Ed,No,10.0,1.0,No,0
+Male,34.0,5.0,8.24,5.0,5-6 hours,Others,MCA,Yes,11.0,1.0,Yes,1
 Female,23.0,4.0,5.25,4.0,More than 8 hours,Healthy,BA,No,3.0,2.0,Yes,0
 Female,20.0,3.0,8.54,4.0,5-6 hours,Moderate,Class 12,Yes,10.0,4.0,No,1
 Male,31.0,4.0,9.6,4.0,Less than 5 hours,Moderate,B.Ed,Yes,2.0,1.0,No,1
@@ -14348,6 +14365,7 @@ Female,20.0,5.0,8.09,5.0,Less than 5 hours,Healthy,Class 12,Yes,12.0,2.0,No,1
 Female,28.0,5.0,8.39,5.0,More than 8 hours,Moderate,B.Pharm,Yes,8.0,3.0,No,1
 Male,30.0,4.0,9.97,2.0,Less than 5 hours,Unhealthy,M.Ed,Yes,11.0,4.0,Yes,1
 Female,20.0,1.0,8.58,5.0,7-8 hours,Moderate,Class 12,No,7.0,3.0,No,0
+Female,33.0,4.0,7.87,4.0,Others,Moderate,PhD,No,10.0,2.0,Yes,0
 Female,19.0,3.0,7.25,4.0,Less than 5 hours,Moderate,Class 12,No,2.0,1.0,No,0
 Female,21.0,5.0,8.58,2.0,Less than 5 hours,Healthy,BSc,Yes,11.0,5.0,No,1
 Female,20.0,4.0,7.38,4.0,7-8 hours,Healthy,Class 12,Yes,6.0,5.0,Yes,1
@@ -14469,6 +14487,7 @@ Female,21.0,2.0,6.69,3.0,More than 8 hours,Unhealthy,BA,Yes,12.0,2.0,Yes,1
 Male,18.0,2.0,8.91,4.0,5-6 hours,Moderate,Class 12,No,12.0,2.0,No,0
 Male,32.0,1.0,9.96,3.0,7-8 hours,Unhealthy,B.Ed,Yes,10.0,4.0,No,1
 Female,21.0,4.0,5.74,3.0,Less than 5 hours,Healthy,B.Com,Yes,11.0,5.0,No,1
+Male,26.0,1.0,7.49,2.0,Less than 5 hours,Others,LLB,Yes,6.0,4.0,No,0
 Female,18.0,5.0,7.94,3.0,Less than 5 hours,Unhealthy,Class 12,Yes,10.0,3.0,Yes,1
 Male,22.0,5.0,8.74,2.0,5-6 hours,Unhealthy,M.Tech,Yes,9.0,3.0,No,1
 Female,25.0,4.0,7.09,2.0,Less than 5 hours,Healthy,B.Arch,Yes,11.0,1.0,Yes,1
@@ -14952,6 +14971,7 @@ Male,33.0,1.0,7.47,1.0,More than 8 hours,Unhealthy,MBA,Yes,2.0,4.0,Yes,0
 Female,32.0,3.0,6.38,3.0,7-8 hours,Healthy,BA,Yes,5.0,1.0,Yes,0
 Female,19.0,5.0,9.24,2.0,5-6 hours,Moderate,Class 12,Yes,5.0,3.0,Yes,1
 Female,28.0,4.0,5.59,2.0,More than 8 hours,Moderate,BCA,Yes,5.0,2.0,Yes,0
+Male,26.0,2.0,7.11,4.0,Others,Unhealthy,PhD,Yes,9.0,2.0,No,0
 Male,29.0,3.0,6.27,4.0,7-8 hours,Moderate,M.Pharm,Yes,12.0,5.0,Yes,1
 Male,18.0,5.0,5.85,2.0,7-8 hours,Moderate,Class 12,No,6.0,2.0,No,1
 Male,23.0,3.0,7.09,4.0,More than 8 hours,Healthy,B.Ed,No,9.0,3.0,No,0
@@ -15050,6 +15070,7 @@ Female,34.0,2.0,9.88,4.0,5-6 hours,Healthy,Class 12,Yes,1.0,4.0,No,0
 Male,29.0,4.0,8.09,4.0,More than 8 hours,Healthy,BA,Yes,6.0,1.0,No,1
 Male,24.0,5.0,9.39,5.0,Less than 5 hours,Unhealthy,B.Ed,Yes,8.0,5.0,Yes,1
 Male,26.0,4.0,9.21,1.0,5-6 hours,Unhealthy,B.Ed,Yes,11.0,4.0,No,1
+Female,27.0,5.0,5.82,3.0,Less than 5 hours,Others,BSc,Yes,7.0,1.0,No,1
 Female,30.0,2.0,9.93,3.0,5-6 hours,Moderate,B.Pharm,Yes,2.0,3.0,No,1
 Female,32.0,4.0,8.5,4.0,5-6 hours,Moderate,B.Arch,Yes,9.0,4.0,Yes,1
 Male,33.0,1.0,5.85,5.0,More than 8 hours,Unhealthy,B.Pharm,No,7.0,2.0,Yes,0
@@ -15065,6 +15086,7 @@ Male,19.0,4.0,9.24,4.0,Less than 5 hours,Unhealthy,Class 12,Yes,8.0,2.0,No,1
 Male,21.0,3.0,8.13,1.0,7-8 hours,Moderate,M.Com,Yes,12.0,5.0,No,1
 Male,25.0,4.0,7.88,2.0,More than 8 hours,Unhealthy,M.Tech,Yes,8.0,4.0,Yes,1
 Female,30.0,3.0,9.93,5.0,5-6 hours,Moderate,BHM,Yes,10.0,1.0,Yes,0
+Male,25.0,3.0,9.84,1.0,Others,Unhealthy,BE,Yes,4.0,1.0,Yes,1
 Male,26.0,4.0,6.1,2.0,Less than 5 hours,Moderate,B.Arch,No,3.0,1.0,Yes,1
 Female,29.0,2.0,9.44,1.0,7-8 hours,Moderate,MSc,No,11.0,1.0,No,0
 Male,33.0,2.0,8.63,1.0,7-8 hours,Unhealthy,LLB,No,12.0,3.0,Yes,1
@@ -15918,6 +15940,7 @@ Female,23.0,5.0,7.72,2.0,7-8 hours,Healthy,B.Arch,Yes,10.0,2.0,Yes,1
 Female,28.0,5.0,5.37,2.0,5-6 hours,Moderate,BCA,Yes,10.0,1.0,Yes,1
 Male,21.0,4.0,9.21,1.0,5-6 hours,Moderate,MCA,Yes,2.0,5.0,Yes,1
 Male,31.0,4.0,8.93,4.0,7-8 hours,Unhealthy,MD,No,6.0,3.0,Yes,0
+Male,23.0,2.0,9.6,1.0,Others,Unhealthy,B.Arch,Yes,1.0,1.0,Yes,0
 Female,29.0,3.0,6.27,4.0,More than 8 hours,Healthy,B.Com,Yes,10.0,2.0,No,1
 Female,24.0,1.0,6.04,3.0,5-6 hours,Moderate,BE,Yes,1.0,2.0,Yes,0
 Female,25.0,3.0,9.34,4.0,Less than 5 hours,Healthy,M.Ed,Yes,1.0,3.0,No,0
@@ -18179,6 +18202,7 @@ Male,25.0,5.0,5.56,2.0,7-8 hours,Healthy,MCA,No,10.0,3.0,Yes,0
 Female,26.0,4.0,5.45,3.0,More than 8 hours,Healthy,BE,Yes,6.0,2.0,No,1
 Female,24.0,4.0,5.82,4.0,5-6 hours,Healthy,B.Arch,Yes,11.0,2.0,No,1
 Male,20.0,3.0,8.03,4.0,Less than 5 hours,Unhealthy,Class 12,Yes,12.0,4.0,Yes,1
+Female,31.0,2.0,9.24,1.0,Others,Moderate,MBA,Yes,12.0,5.0,No,1
 Female,19.0,4.0,6.99,3.0,Less than 5 hours,Unhealthy,Class 12,Yes,12.0,4.0,No,1
 Male,33.0,1.0,6.78,3.0,5-6 hours,Unhealthy,B.Ed,No,0.0,1.0,Yes,0
 Male,24.0,3.0,9.56,1.0,Less than 5 hours,Healthy,Class 12,Yes,0.0,1.0,No,0
@@ -20268,6 +20292,7 @@ Male,33.0,3.0,7.39,1.0,More than 8 hours,Moderate,MA,Yes,8.0,5.0,No,0
 Male,26.0,3.0,5.65,1.0,Less than 5 hours,Unhealthy,MBA,No,3.0,4.0,No,1
 Female,28.0,1.0,9.21,2.0,Less than 5 hours,Unhealthy,BSc,Yes,11.0,1.0,No,1
 Female,32.0,1.0,5.74,2.0,7-8 hours,Moderate,B.Pharm,No,5.0,1.0,Yes,0
+Male,32.0,4.0,9.39,2.0,Others,Healthy,M.Tech,No,4.0,3.0,Yes,1
 Male,31.0,3.0,6.42,1.0,More than 8 hours,Healthy,LLM,Yes,4.0,2.0,Yes,1
 Male,29.0,5.0,8.81,5.0,7-8 hours,Unhealthy,PhD,Yes,9.0,2.0,No,1
 Male,26.0,3.0,6.39,3.0,5-6 hours,Unhealthy,MBBS,No,12.0,2.0,Yes,1
@@ -22463,6 +22488,7 @@ Female,25.0,3.0,7.83,1.0,Less than 5 hours,Moderate,PhD,No,10.0,3.0,No,0
 Female,23.0,5.0,9.63,4.0,5-6 hours,Moderate,MCA,Yes,6.0,4.0,Yes,1
 Female,20.0,3.0,8.52,1.0,More than 8 hours,Moderate,Class 12,Yes,10.0,2.0,No,0
 Female,25.0,4.0,7.17,4.0,7-8 hours,Healthy,MBBS,Yes,10.0,1.0,Yes,1
+Male,30.0,5.0,5.99,2.0,7-8 hours,Others,M.Ed,Yes,7.0,4.0,No,1
 Male,28.0,1.0,7.24,5.0,Less than 5 hours,Unhealthy,Class 12,Yes,10.0,3.0,Yes,1
 Female,33.0,3.0,5.86,1.0,More than 8 hours,Unhealthy,B.Com,Yes,6.0,2.0,Yes,0
 Female,20.0,5.0,7.1,2.0,More than 8 hours,Healthy,Class 12,Yes,0.0,4.0,Yes,1
@@ -22850,6 +22876,7 @@ Female,27.0,2.0,6.89,2.0,7-8 hours,Healthy,BHM,Yes,3.0,2.0,Yes,0
 Male,28.0,5.0,9.33,2.0,7-8 hours,Unhealthy,M.Ed,Yes,12.0,5.0,No,1
 Female,31.0,3.0,7.6,5.0,5-6 hours,Moderate,M.Com,Yes,2.0,4.0,No,0
 Female,31.0,3.0,7.17,4.0,7-8 hours,Unhealthy,LLB,No,4.0,4.0,Yes,1
+Male,34.0,3.0,5.66,4.0,Others,Moderate,MSc,No,12.0,1.0,No,0
 Female,26.0,5.0,5.59,2.0,Less than 5 hours,Moderate,BBA,Yes,12.0,5.0,Yes,1
 Male,25.0,4.0,6.17,3.0,Less than 5 hours,Moderate,MA,Yes,12.0,1.0,Yes,1
 Female,24.0,5.0,6.99,3.0,Less than 5 hours,Moderate,B.Arch,Yes,12.0,5.0,Yes,1
@@ -23452,6 +23479,7 @@ Female,30.0,3.0,8.09,3.0,5-6 hours,Moderate,MSc,No,3.0,3.0,No,0
 Female,25.0,1.0,9.86,3.0,More than 8 hours,Healthy,B.Pharm,No,12.0,3.0,Yes,0
 Male,32.0,3.0,7.02,4.0,5-6 hours,Healthy,Class 12,Yes,1.0,2.0,No,0
 Female,29.0,2.0,9.88,4.0,5-6 hours,Moderate,B.Com,No,4.0,2.0,No,0
+Male,24.0,1.0,8.47,2.0,7-8 hours,Others,MCA,Yes,0.0,5.0,No,1
 Female,18.0,1.0,5.51,3.0,More than 8 hours,Moderate,Class 12,No,6.0,1.0,Yes,0
 Male,24.0,3.0,5.11,2.0,Less than 5 hours,Unhealthy,B.Tech,Yes,7.0,4.0,No,1
 Female,31.0,3.0,8.23,4.0,Less than 5 hours,Moderate,B.Com,Yes,0.0,4.0,Yes,0
@@ -25147,6 +25175,7 @@ Male,31.0,2.0,5.64,5.0,7-8 hours,Moderate,M.Ed,No,11.0,4.0,Yes,0
 Male,19.0,4.0,6.75,1.0,7-8 hours,Unhealthy,Class 12,Yes,8.0,3.0,Yes,1
 Female,48.0,3.0,5.32,4.0,7-8 hours,Unhealthy,Class 12,No,1.0,4.0,Yes,1
 Male,24.0,4.0,9.78,2.0,5-6 hours,Unhealthy,B.Com,Yes,8.0,1.0,Yes,1
+Female,30.0,4.0,9.96,1.0,Others,Unhealthy,B.Com,Yes,1.0,2.0,Yes,1
 Male,26.0,1.0,8.28,3.0,More than 8 hours,Unhealthy,BCA,Yes,9.0,4.0,Yes,1
 Female,31.0,5.0,7.7,1.0,Less than 5 hours,Unhealthy,LLM,Yes,10.0,4.0,Yes,1
 Male,26.0,2.0,9.42,5.0,7-8 hours,Healthy,BBA,No,0.0,1.0,Yes,0
@@ -26000,6 +26029,7 @@ Female,24.0,3.0,6.76,4.0,Less than 5 hours,Unhealthy,M.Tech,No,3.0,4.0,Yes,1
 Female,18.0,3.0,7.53,4.0,7-8 hours,Unhealthy,Class 12,Yes,12.0,4.0,No,1
 Female,31.0,2.0,8.29,4.0,5-6 hours,Moderate,M.Com,Yes,10.0,2.0,No,1
 Male,26.0,3.0,9.67,4.0,7-8 hours,Healthy,B.Ed,No,0.0,2.0,No,0
+Male,25.0,3.0,5.6,3.0,Less than 5 hours,Others,BCA,Yes,2.0,1.0,No,0
 Female,28.0,2.0,7.15,5.0,7-8 hours,Moderate,B.Arch,No,11.0,3.0,Yes,0
 Male,18.0,2.0,6.21,4.0,Less than 5 hours,Moderate,Class 12,Yes,12.0,4.0,No,1
 Female,25.0,4.0,8.44,1.0,More than 8 hours,Healthy,B.Ed,Yes,4.0,5.0,Yes,1
