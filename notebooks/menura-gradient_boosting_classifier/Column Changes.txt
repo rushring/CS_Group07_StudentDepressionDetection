@@ -1,0 +1,30 @@
+Drops - 
+    id
+    Work_Pressure
+    Job_Satisfaction
+    City
+    Profession
+
+Rename - 
+    Have_you_ever_had_suicidal_thoughts_ => Suicidal Thoughts
+    Family_History_of_Mental_Illness => Mental Illness History
+    Work/Study_Hours => Study_Hours
+
+New Columns - 
+    Overall_Stress = Academic_Pressure + Study_Hours + Financial_Stress
+    Age_Group => 'Teen', 'Young Adult', 'Adult', 'Senior'
+    Lifestyle_Score = S(leep_Score + Diet_Score) / 2
+
+Mapping - 
+    sleep_map = {
+        "Less than 5 hours": 1,
+        "5-6 hours": 2,
+        "7-8 hours": 3,
+        "More than 8 hours": 2  # not necessary - not better
+    }
+
+    diet_map = {
+        "Unhealthy": 1,
+        "Moderate": 2,
+        "Healthy": 3
+    }
