@@ -6,7 +6,7 @@ import pandas as pd
 # ---------------------------
 # Load Model
 # ---------------------------
-model = joblib.load("/workspaces/CS_Group07_StudentDepressionDetection/notebooks/menura-gradient_boosting_classifier/gbc_model.joblib")
+model = joblib.load("/workspaces/CS_Group07_StudentDepressionDetection/notebooks/dunith_decision_tree/decision_tree_model.joblib")
 
 st.set_page_config(page_title="Student Depression Detection", layout="wide")
 
@@ -30,7 +30,7 @@ st.write("")
 # ---------------------------
 st.sidebar.header("About")
 st.sidebar.info(
-    "This app uses a Gradient Boosting Machine (GBM) model trained on student well-being data "
+    "This app uses a Decision Tree model trained on student well-being data "
     "to identify depression likelihood. All predictions are probabilistic."
 )
 

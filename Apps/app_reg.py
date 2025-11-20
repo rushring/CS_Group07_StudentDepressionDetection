@@ -30,7 +30,7 @@ st.write("")
 # ---------------------------
 st.sidebar.header("About")
 st.sidebar.info(
-    "This app uses a Gradient Boosting Machine (GBM) model trained on student well-being data "
+    "This app uses a LOG REG model trained on student well-being data "
     "to identify depression likelihood. All predictions are probabilistic."
 )
 
@@ -61,8 +61,6 @@ with col2:
     Financial_Stress = st.slider("Financial Stress (1-5)", 1, 5, 2)
     Mental_Illness_History = st.selectbox("Mental Illness History", ["Yes", "No"])
 
-Age_Group = "Adult" if Age >= 30 else "Young Adult"
-
 
 # ---------------------------
 # Prediction Button
@@ -79,11 +77,10 @@ if st.button("🔍 Predict"):
         "Sleep_Duration": Sleep_Duration,
         "Dietary_Habits": Dietary_Habits,
         "Degree": Degree,
-        "Suicidal Thoughts": Suicidal_Thoughts,
+        "Suicidal_Thoughts": Suicidal_Thoughts,
         "Study_Hours": Study_Hours,
         "Financial_Stress": Financial_Stress,
-        "Mental Illness History": Mental_Illness_History,
-        "Age_Group": Age_Group
+        "Mental_Illness_History": Mental_Illness_History,
     }])
 
     # Predict
@@ -118,6 +115,6 @@ st.write("")
 st.markdown("""
     <hr>
     <p style="text-align:center;">
-        Developed with ❤️ using Streamlit & Gradient Boosting Classifier.
+        Developed with ❤️ using Streamlit & Logistic Regression.
     </p>
 """, unsafe_allow_html=True)
