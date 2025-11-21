@@ -6,11 +6,28 @@ Drops -
     Profession
 
 Rename - 
-    Have_you_ever_had_suicidal_thoughts_ => Suicidal Thoughts
-    Family_History_of_Mental_Illness => Mental Illness History
+    Have_you_ever_had_suicidal_thoughts_ => Suicidal_Thoughts
+    Family_History_of_Mental_Illness => Mental_Illness_History
     Work/Study_Hours => Study_Hours
 
-New Columns - 
-    Age_Group => 'Teen', 'Young Adult', 'Adult', 'Senior'
+Pipeline - 
+
+categorical_cols = X.select_dtypes(include='object').columns
+numeric_cols = X.select_dtypes(include=['int64', 'float64']).columns
+categorical_indices = [X.columns.get_loc(col) for col in categorical_cols]
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        ("num", StandardScaler(), numeric_cols),
+        ("cat", OneHotEncoder(handle_unknown="ignore"), categorical_cols)
+    ]
+)
+
+
+pipeline = Pipeline(steps=[
+    ("preprocess", preprocessor),
+    ("model", gb_model)
+])
+
 
 
