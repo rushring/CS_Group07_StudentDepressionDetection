@@ -1,23 +1,6 @@
 # 🧠 Student Depression Detection System using ML v1.0
 ### *Early Detection of Student Depression Using Machine Learning and Stacked Meta-Modeling*
 
-## 📌 Table of Contents
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [System Architecture](#system-architecture)
-- [Dataset & Features](#dataset--features)
-- [Preprocessing Pipeline](#preprocessing-pipeline)
-- [Meta-Model Architecture](#meta-model-architecture)
-- [Project Folder Structure](#project-folder-structure)
-- [Tech Stack](#tech-stack)
-- [Local Installation Guide](#local-installation-guide)
-- [Running in app-env (Dev Container)](#running-in-app-env-dev-container)
-- [Model Evaluation](#model-evaluation)
-- [Application UI](#application-ui)
-- [Future Improvements](#future-improvements)
-- [Contributors](#contributors)
-- [License](#license)
-
 ## 📘 Overview
 **Student Depression Detection System using ML v1.0** is a machine-learning solution designed to identify students who are at risk of depression.  
 The system processes academic, behavioural, and lifestyle-related data to predict mental health conditions using a **stacked Meta-Model** built from five base machine learning models.
@@ -83,39 +66,7 @@ Base Models:
 4. Logistic Regression  
 5. SVM  
 
-Meta-Learner: Logistic Regression / Gradient Boosting
-
-## 📁 Project Folder Structure
-```
-CS_Group07_StudentDepressionDetection/
-│
-├── app.py                      # Streamlit main application
-├── requirements.txt            # Python dependencies
-├── Dockerfile                  # Base image for Dev Container
-├── Makefile                    # Utility commands
-│
-├── src/
-│   ├── preprocessing.py        # Data preprocessing
-│   ├── train_models.py         # Base model training
-│   ├── meta_model.py           # Stacking classifier
-│   ├── predict.py              # Prediction utilities
-│   └── utils.py                # Helper functions
-│
-├── Data/
-│   └── student_data.csv
-│
-├── notebooks/
-│   └── experiments.ipynb       # EDA + training experiments
-│
-├── tests/
-│   └── test_pipeline.py
-│
-└── .devcontainer/
-    ├── devcontainer.json
-    ├── Dockerfile
-    └── environment.yml
-
-```
+Meta-Learner: XGB
 
 ## 🧰 Tech Stack
 Python, Scikit-Learn, Streamlit, Docker, VS Code Dev Containers, Mamba/Conda
@@ -152,18 +103,6 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 ### 6. Access App:
 Open: http://localhost:8501
 
-## 📈 Model Evaluation
-Sample:
-| Metric | Score |
-|--------|--------|
-| Accuracy | 0.82 |
-| ROC-AUC | 0.88 |
-
-## 🖼 Application UI
-(Add images)
-```
-![Home](./assets/ui_home.png)
-```
 
 ## 🚀 Future Improvements
 - Add SHAP/LIME explainability  
@@ -171,7 +110,11 @@ Sample:
 - Add REST API  
 
 ## 👨‍💻 Contributors
-- Menura (Lead Developer / ML Engineer)
+- Menura Andrahennedi
+- Sivakumar Rushani
+- Themiya Dulshan
+- Kaveesha Alwis
+- Dunith Munasinghe
 
 ## 📄 License
 MIT License
