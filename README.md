@@ -87,16 +87,34 @@ Meta-Learner: Logistic Regression / Gradient Boosting
 
 ## 📁 Project Folder Structure
 ```
-src/
-  preprocessing.py
-  train_models.py
-  meta_model.py
-  predict.py
-  utils.py
-Data/
-notebooks/
-tests/
-.devcontainer/
+CS_Group07_StudentDepressionDetection/
+│
+├── app.py                      # Streamlit main application
+├── requirements.txt            # Python dependencies
+├── Dockerfile                  # Base image for Dev Container
+├── Makefile                    # Utility commands
+│
+├── src/
+│   ├── preprocessing.py        # Data preprocessing
+│   ├── train_models.py         # Base model training
+│   ├── meta_model.py           # Stacking classifier
+│   ├── predict.py              # Prediction utilities
+│   └── utils.py                # Helper functions
+│
+├── Data/
+│   └── student_data.csv
+│
+├── notebooks/
+│   └── experiments.ipynb       # EDA + training experiments
+│
+├── tests/
+│   └── test_pipeline.py
+│
+└── .devcontainer/
+    ├── devcontainer.json
+    ├── Dockerfile
+    └── environment.yml
+
 ```
 
 ## 🧰 Tech Stack
