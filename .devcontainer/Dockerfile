@@ -19,3 +19,19 @@ SHELL ["conda", "run", "-n", "ml-env", "/bin/bash", "-c"]
 
 # Set entrypoint to bash so users start in the environment
 ENTRYPOINT ["conda", "run", "-n", "ml-env", "/bin/bash"]
+
+# Install system dependencies for XGBoost
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python packages
+RUN pip install --no-cache-dir xgboost
+
+# Install conda environment for ML
+COPY environment.yml /tmp/environment.yml
+RUN conda env create -f /tmp/environment.yml && conda clean -afy
+
+# Activate environment by default
+SHELL ["conda", "run", "-n", "ml-env", "/bin/bash", "-c"]
