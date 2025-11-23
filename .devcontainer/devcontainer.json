@@ -15,6 +15,6 @@
       ]
     }
   },
-  "postCreateCommand": "echo 'Environment ready!'",
+  "postCreateCommand": "conda env create -f environment.yml && echo 'ML env ready!'",
   "remoteUser": "root"
 }

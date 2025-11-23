@@ -1,0 +1,14 @@
+name: app-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy=2.3.1
+  - scikit-learn=1.6.1
+  - pandas=2.3.1
+  - imbalanced-learn=0.13.0
+  - joblib=1.5.1
+  - xgboost=2.1.0 
+  - pip
+  - pip:
+      - streamlit

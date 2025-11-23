@@ -1,347 +1,273 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 import joblib
+import numpy as np
+import sys
+import json
 
-# ---------------------------------------------------
-# 1. Load models (UPDATE THESE PATHS!)
-# ---------------------------------------------------
-DT_PATH  = "/workspaces/CS_Group07_StudentDepressionDetection/notebooks/dunith_decision_tree/decision_tree_model.joblib"
-RF_PATH  = "/workspaces/CS_Group07_StudentDepressionDetection/notebooks/fc211009_Themiya_random_forrest/random_forest_student_depression.joblib"
-SVM_PATH = "/workspaces/CS_Group07_StudentDepressionDetection/notebooks/fc211011_kaveesha_svm_model/best_svm_model.joblib"
-GB_PATH  = "/workspaces/CS_Group07_StudentDepressionDetection/notebooks/menura-gradient_boosting_classifier/gbc_model.joblib"
-LR_PATH  = "/workspaces/CS_Group07_StudentDepressionDetection/notebooks/Rushani_Logistic_Regression/final_logistic_model.joblib"
-META_PATH = "/workspaces/CS_Group07_StudentDepressionDetection/notebooks/meta_model/final_meta_model.joblib"
-
-@st.cache_resource
-def load_models():
-    dt_model  = joblib.load(DT_PATH)
-    rf_model  = joblib.load(RF_PATH)
-    svm_model = joblib.load(SVM_PATH)
-    gb_model  = joblib.load(GB_PATH)
-    lr_model  = joblib.load(LR_PATH)
-    meta_model = joblib.load(META_PATH)
-    return dt_model, rf_model, svm_model, gb_model, lr_model, meta_model
-
-dt_model, rf_model, svm_model, gb_model, lr_model, meta_model = load_models()
-
-
-# ---------------------------------------------------
-# CSS — UI Enhancement
-# ---------------------------------------------------
-st.set_page_config(page_title="Student Depression Predictor", page_icon="🧠", layout="wide")
-
+# ===================== CSS =====================
 st.markdown("""
     <style>
-        body {
-            background-color: #f4f7fa;
+        .block-container {
+            max-width: 100% !important;
+            padding-left: 5rem !important;
+            padding-right: 5rem !important;
+        }
+
+        .css-1kyxreq {
+            gap: 3rem !important;
         }
         .main-title {
-            font-size: 38px;
+            text-align: center;
+            font-size: 32px;
             font-weight: 700;
-            text-align: center;
-            color: #2b4eff;
-            margin-top: -20px;
+            margin-bottom: 20px;
+            color: #2E86C1;
         }
-        .subtext {
+        .sub-title {
             text-align: center;
-            font-size: 17px;
-            color: #444;
+            font-size: 18px;
+            color: #555;
             margin-bottom: 30px;
         }
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 3px 12px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
-        }
-        .predict-btn button {
-            width: 100%;
-            padding: 15px;
-            border-radius: 12px !important;
-            font-size: 18px;
-        }
         .result-card {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 15px;
-            font-size: 18px;
-            text-align: center;
-            margin-bottom: 15px;
+            background-color: #F2F4F4;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #2E86C1;
+            margin-top: 20px;
         }
-        .model-result {
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 12px;
-            border-left: 5px solid;
+        .probability-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1A5276;
         }
-        .positive {
-            background: #8B0000;
-            border-left-color: #c62828;
+            
+        div.stButton > button {
+            height: 50px !important;
+            font-size: 20px !important;
+            font-weight: 700 !important;
+            background-color: #0D0D0D !important;
+            color: white !important;
+            border-radius: 10px !important;
+            border: 1px solid white !important;
         }
-        .negative {
-            background: #008000;
-            border-left-color: #2e7d32;
-        }
+
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 class='main-title'>🧠 Student Depression Prediction System</h1>", unsafe_allow_html=True)
-st.markdown("<p class='subtext'>Fill in the details below to get predictions from all 6 models</p>", unsafe_allow_html=True)
+
+st.set_page_config(page_title="Student Depression Prediction", layout="centered")
 
 
-# ---------------------------------------------------
-# 2. Define final 46 feature columns (must match training)
-# ---------------------------------------------------
-MODEL_COLUMNS = [
-    "Age", "Academic_Pressure", "CGPA", "Study_Satisfaction", "Study_Hours",
-    "Financial_Stress", "Gender_Male",
-    "Sleep_Duration_7-8 hours", "Sleep_Duration_Less than 5 hours",
-    "Sleep_Duration_More than 8 hours", "Sleep_Duration_Others",
-    "Dietary_Habits_Moderate", "Dietary_Habits_Others", "Dietary_Habits_Unhealthy",
-    "Degree_B.Com", "Degree_B.Ed", "Degree_B.Pharm", "Degree_B.Tech", "Degree_BA",
-    "Degree_BBA", "Degree_BCA", "Degree_BE", "Degree_BHM", "Degree_BSc",
-    "Degree_Class 12", "Degree_LLB", "Degree_LLM", "Degree_M.Com", "Degree_M.Ed",
-    "Degree_M.Pharm", "Degree_M.Tech", "Degree_MA", "Degree_MBA", "Degree_MBBS",
-    "Degree_MCA", "Degree_MD", "Degree_ME", "Degree_MHM", "Degree_MSc",
-    "Degree_Others", "Degree_PhD",
-    "Suicidal Thoughts_Yes", "Mental Illness History_Yes",
-    "Age_Group_Senior", "Age_Group_Teen", "Age_Group_Young Adult"
-]
+# --------------- Load saved models ---------------
+best_meta_model = joblib.load("/workspaces/CS_Group07_StudentDepressionDetection/notebooks/meta_model/best_meta_model.joblib")
 
-# The meta-model's feature names
-META_COLUMNS = [
-    'DecisionTree',
-    'RandomForest',
-    'SVM',
-    'GradientBoosting',
-    'LogisticRegression',
-    'DecisionTree_abs',
-    'RandomForest_abs',
-    'SVM_abs',
-    'GradientBoosting_abs',
-    'LogisticRegression_abs',
-    'entropy',
-    'mean_proba',
-    'std_proba'
-]
+dt_model = joblib.load("/workspaces/CS_Group07_StudentDepressionDetection/notebooks/dunith_decision_tree/decision_tree_model.joblib")
+rf_model = joblib.load("/workspaces/CS_Group07_StudentDepressionDetection/notebooks/fc211009_Themiya_random_forrest/random_forest_student_depression.joblib")
+svm_model = joblib.load("/workspaces/CS_Group07_StudentDepressionDetection/notebooks/fc211011_kaveesha_svm_model/best_svm_model.joblib")
+gb_model = joblib.load("/workspaces/CS_Group07_StudentDepressionDetection/notebooks/menura-gradient_boosting_classifier/gbc_model.joblib")
+lr_model = joblib.load("/workspaces/CS_Group07_StudentDepressionDetection/notebooks/Rushani_Logistic_Regression/final_logistic_model.joblib")
 
-# Model information
-MODEL_INFO = {
-    "Decision Tree": {"model": dt_model, "icon": "🌳"},
-    "Random Forest": {"model": rf_model, "icon": "🌲"},
-    "SVM": {"model": svm_model, "icon": "📊"},
-    "Gradient Boosting": {"model": gb_model, "icon": "🚀"},
-    "Logistic Regression": {"model": lr_model, "icon": "📈"},
-    "Meta Model": {"model": meta_model, "icon": "🎯"}
+base_models = {
+    'DecisionTree': dt_model,
+    'RandomForest': rf_model,
+    'SVM': svm_model,
+    'GradientBoosting': gb_model,
+    'LogisticRegression': lr_model
 }
 
+# --------------- Prediction function ---------------
+def run_prediction(input_dict):
+    df = pd.DataFrame([input_dict])
 
-# ---------------------------------------------------
-# 3. Streamlit UI
-# ---------------------------------------------------
-st.markdown("### 📝 Personal & Study Information")
+    # Base models
+    dt_pred = dt_model.predict_proba(df)[0][1]
+    rf_pred = rf_model.predict_proba(df)[0][1]
+    svm_pred = svm_model.predict_proba(df)[0][1]
+    gb_pred = gb_model.predict_proba(df)[0][1]
+    lr_pred = lr_model.predict_proba(df)[0][1]
 
-col1, col2 = st.columns(2)
+    base_outputs = {
+        "DecisionTree": float(dt_pred),
+        "RandomForest": float(rf_pred),
+        "SVM": float(svm_pred),
+        "GradientBoosting": float(gb_pred),
+        "LogisticRegression": float(lr_pred)
+    }
 
-with col1:
-    with st.container():
-        st.markdown("<div class='card'>", unsafe_allow_html=True)
-        age = st.number_input("🎯 Age", min_value=10, max_value=80, value=20)
-        academic_pressure = st.slider("📚 Academic Pressure (0–10)", 0, 10, 5)
-        cgpa = st.slider("🎓 CGPA (0–4)", 0.0, 4.0, 3.0, step=0.1)
-        study_satisfaction = st.slider("😊 Study Satisfaction (0–10)", 0, 10, 5)
-        study_hours = st.slider("⏳ Study Hours Per Day", 0, 15, 4)
-        financial_stress = st.slider("💰 Financial Stress (0–10)", 0, 10, 5)
-        st.markdown("</div>", unsafe_allow_html=True)
+    # Meta model
+    meta_input = pd.DataFrame([base_outputs])
+    meta_pred = best_meta_model.predict_proba(meta_input)[0][1]
 
-with col2:
-    with st.container():
-        st.markdown("<div class='card'>", unsafe_allow_html=True)
-        gender = st.selectbox("🚻 Gender", ["Male", "Female"])
-        sleep_duration = st.selectbox("😴 Sleep Duration", ["7-8 hours", "Less than 5 hours", "More than 8 hours", "Others"])
-        diet = st.selectbox("🍽️ Dietary Habits", ["Moderate", "Others", "Unhealthy"])
-        degree = st.selectbox("🎓 Degree Program", [
-            "B.Com", "B.Ed", "B.Pharm", "B.Tech", "BA", "BBA", "BCA", "BE", "BHM",
-            "BSc", "Class 12", "LLB", "LLM", "M.Com", "M.Ed", "M.Pharm", "M.Tech",
-            "MA", "MBA", "MBBS", "MCA", "MD", "ME", "MHM", "MSc", "Others", "PhD"
-        ])
-        suicidal = st.selectbox("⚠️ Suicidal Thoughts", ["No", "Yes"])
-        mental_history = st.selectbox("🧩 Mental Illness History", ["No", "Yes"])
-        age_group = st.selectbox("👤 Age Group", ["Teen", "Young Adult", "Senior"])
-        st.markdown("</div>", unsafe_allow_html=True)
+    return meta_pred, base_outputs
 
+# # --------------- Input fields ---------------
+# st.markdown("<h2 class='main-title'>Student Depression Prediction System</h2>", unsafe_allow_html=True)
+# st.markdown("<p class='sub-title'>Enter student information below and click Predict</p>", unsafe_allow_html=True)
 
-st.markdown("---")
+# col1, col2 = st.columns(2)
 
-st.markdown("### 🤖 Select Models for Prediction")
-selected_models = st.multiselect(
-    "Choose which models to use for prediction:",
-    list(MODEL_INFO.keys()),
-    default=list(MODEL_INFO.keys())
-)
+# with col1:
+#     age = st.number_input("Age", 15, 50, 25)
+#     academic_pressure = st.slider("Academic Pressure", 1, 5, 3)
+#     cgpa = st.number_input("CGPA", 0.0, 4.0, 3.0, step=0.01)
+#     study_satisfaction = st.slider("Study Satisfaction", 1, 5, 3)
+#     study_hours = st.slider("Study Hours", 0, 16, 6)
+#     financial_stress = st.slider("Financial Stress", 1, 5, 3)
 
-st.markdown("---")
+# with col2:
+#     gender = st.selectbox("Gender", ["Male", "Female"])
+#     sleep_duration = st.selectbox(
+#         "Sleep Duration",
+#         ["Less than 5 hours", "5-6 hours", "7-8 hours", "More than 8 hours"],
+#         index=2
+#     )
+#     dietary_habits = st.selectbox(
+#         "Dietary Habits",
+#         ["Unhealthy", "Moderate", "Healthy"],
+#         index=2
+#     )
+#     degree = st.selectbox("Degree", ["Undergraduate", "Postgraduate"], index=0)
+#     suicidal_thoughts = st.selectbox("Suicidal Thoughts", ["Yes", "No"], index=0)
+#     mental_illness_history = st.selectbox("Mental Illness History", ["Yes", "No"], index=0)
 
 
-# ---------------------------------------------------
-# 4. Build 46-feature row from user input
-# ---------------------------------------------------
-def build_feature_row():
-    data = dict.fromkeys(MODEL_COLUMNS, 0.0)
+# # ---------------- Create input row ----------------
+# input_dict = {
+#     "Age": age,
+#     "Academic_Pressure": academic_pressure,
+#     "CGPA": cgpa,
+#     "Study_Satisfaction": study_satisfaction,
+#     "Study_Hours": study_hours,
+#     "Financial_Stress": financial_stress,
+#     "Gender": gender,
+#     "Sleep_Duration": sleep_duration,
+#     "Dietary_Habits": dietary_habits,
+#     "Degree": degree,
+#     "Suicidal_Thoughts": suicidal_thoughts,
+#     "Mental_Illness_History": mental_illness_history
+# }
 
-    # numeric
-    data["Age"] = float(age)
-    data["Academic_Pressure"] = float(academic_pressure)
-    data["CGPA"] = float(cgpa)
-    data["Study_Satisfaction"] = float(study_satisfaction)
-    data["Study_Hours"] = float(study_hours)
-    data["Financial_Stress"] = float(financial_stress)
+# input_df = pd.DataFrame([input_dict])
 
-    # gender
-    if gender == "Male":
-        data["Gender_Male"] = 1.0
 
-    # sleep duration
-    data[f"Sleep_Duration_{sleep_duration}"] = 1.0
+# # --------------- PREDICTIONS ---------------
+# st.markdown("<div class='center-button'>", unsafe_allow_html=True)
+# predict_clicked = st.button("Predict")
+# st.markdown("</div>", unsafe_allow_html=True)
 
-    # diet
-    data[f"Dietary_Habits_{diet}"] = 1.0
-
-    # degree
-    data[f"Degree_{degree}"] = 1.0
-
-    # suicidal & mental history
-    if suicidal == "Yes":
-        data["Suicidal Thoughts_Yes"] = 1.0
-    if mental_history == "Yes":
-        data["Mental Illness History_Yes"] = 1.0
-
-    # age group
-    data[f"Age_Group_{age_group}"] = 1.0
-
-    return pd.DataFrame([data])
-
-# ---------------------------------------------------
-# 5. From 46 features → base model outputs → meta features
-# ---------------------------------------------------
-def build_meta_features(x_user: pd.DataFrame) -> pd.DataFrame:
-    # Compute probabilities
-    def safe_proba(model, X):
-        if hasattr(model, "predict_proba"):
-            return float(model.predict_proba(X)[0, 1])
-        if hasattr(model, "decision_function"):
-            val = float(model.decision_function(X)[0])
-            return 1 / (1 + np.exp(-val))
-        return float(model.predict(X)[0])
-
-    # Base model outputs
-    p_dt = safe_proba(dt_model, x_user)
-    p_rf = safe_proba(rf_model, x_user)
-    p_svm = safe_proba(svm_model, x_user)
-    p_gb = safe_proba(gb_model, x_user)
-    p_lr = safe_proba(lr_model, x_user)
-
-    probs = np.array([p_dt, p_rf, p_svm, p_gb, p_lr])
-
-    # Extra features
-    eps = 1e-15
-    entropy = -np.mean(probs * np.log(probs + eps) + (1 - probs) * np.log(1 - probs + eps))
-    mean_proba = probs.mean()
-    std_proba = probs.std()
-
-    # Create DataFrame IN CORRECT ORDER
-    meta_row = [
-        p_dt,
-        p_rf,
-        p_svm,
-        p_gb,
-        p_lr,
-        abs(p_dt),
-        abs(p_rf),
-        abs(p_svm),
-        abs(p_gb),
-        abs(p_lr),
-        entropy,
-        mean_proba,
-        std_proba
-    ]
-
-    return pd.DataFrame([meta_row], columns=META_COLUMNS)
-
-# ---------------------------------------------------
-# Get prediction from a specific model
-# ---------------------------------------------------
-def get_model_prediction(model, x_user: pd.DataFrame):
-    if hasattr(model, "predict_proba"):
-        proba = float(model.predict_proba(x_user)[0, 1])
-    elif hasattr(model, "decision_function"):
-        val = float(model.decision_function(x_user)[0])
-        proba = 1 / (1 + np.exp(-val))
-    else:
-        proba = float(model.predict(x_user)[0])
+# if predict_clicked:
+#     final_pred, base_outputs = run_prediction(input_dict)
     
-    return proba
+#     if final_pred > 0.5:
+#         st.markdown(f"""
+#             <div style="padding: 20px; border-radius: 10px; background-color:#ffcccc;">
+#                 <h2 style="color:#cc0000;">🚨 High Risk of Depression</h2>
+#                 <h3 style="color:#000000; font-size:20px;">Probability of being depressed: {final_pred:.4f}</h3>
+#             </div>
+#         """, unsafe_allow_html=True)
+#     else:
+#         st.markdown(f"""
+#             <div style="padding: 20px; border-radius: 10px; background-color:#ccffdd;">
+#                 <h2 style="color:#006600;">✅ Low Risk of Depression</h2>
+#                 <h3 style="color:#000000; font-size:20px;">Probability of being depressed: {final_pred:.4f}</h3>
+#             </div>
+#         """, unsafe_allow_html=True)
+
+#     st.markdown("<br>", unsafe_allow_html=True)
+#     with st.expander("🔍 Show Base Model's Individual Predictions"):
+#         st.json(base_outputs)
 
 
-# ---------------------------------------------------
-# Predict Button + Result UI
-# ---------------------------------------------------
-st.markdown("### 🔍 Prediction")
+# ------------------------------------------------------------
+#                     MAIN TWO-COLUMN LAYOUT
+# ------------------------------------------------------------
+left, right = st.columns([7, 6], gap="large")  # 2/3 left, 1/3 right
 
-button_container = st.container()
-with button_container:
-    st.markdown("<div class='predict-btn'>", unsafe_allow_html=True)
-    predict_clicked = st.button("🔍 Predict Depression")
-    st.markdown("</div>", unsafe_allow_html=True)
 
-if predict_clicked:
-    if not selected_models:
-        st.warning("⚠️ Please select at least one model!")
-    else:
-        X_user = build_feature_row()
-        
-        st.markdown("### 📊 Model Predictions")
-        
-        # Display results in columns
-        cols = st.columns(min(3, len(selected_models)))
-        
-        for idx, model_name in enumerate(selected_models):
-            col = cols[idx % len(cols)]
-            
-            model_obj = MODEL_INFO[model_name]["model"]
-            icon = MODEL_INFO[model_name]["icon"]
-            
-            # Get meta features for meta model
-            if model_name == "Meta Model":
-                meta_features = build_meta_features(X_user)
-                proba = float(meta_model.predict_proba(meta_features)[0, 1])
-            else:
-                proba = get_model_prediction(model_obj, X_user)
-            
-            pred = 1 if proba >= 0.5 else 0
-            status = "🚨 Depression" if pred == 1 else "✅ No Depression"
-            bg_class = "positive" if pred == 1 else "negative"
-            
-            with col:
-                st.markdown(f"""
-                    <div class='model-result {bg_class}'>
-                        <h4>{icon} {model_name}</h4>
-                        <p><b>Probability:</b> {proba:.1%}</p>
-                        <p><b>Prediction:</b> {status}</p>
-                    </div>
-                """, unsafe_allow_html=True)
-        
-        st.markdown("---")
-        
-        # Summary section
-        st.markdown("### 📈 Summary")
-        meta_features = build_meta_features(X_user)
-        meta_proba = float(meta_model.predict_proba(meta_features)[0, 1])
-        
-        summary_col1, summary_col2 = st.columns(2)
-        with summary_col1:
-            st.metric("Meta Model Probability", f"{meta_proba:.1%}")
-        with summary_col2:
-            st.metric("Meta Model Prediction", "🚨 Depression Likely" if meta_proba >= 0.5 else "✅ No Depression")
+with left:
+
+    # Title
+    st.markdown("<h1 class='main-title'>Student Depression Prediction System</h1>", unsafe_allow_html=True)
+    st.markdown("<p class='sub-title' style='font-size:25px;'>Enter student information below and click Predict</p>", unsafe_allow_html=True)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        age = st.number_input("Age", 15, 50, 25)
+        academic_pressure = st.slider("Academic Pressure", 1, 5, 3)
+        cgpa = st.number_input("CGPA", 0.0, 4.0, 3.0, step=0.01)
+        study_satisfaction = st.slider("Study Satisfaction", 1, 5, 3)
+        study_hours = st.slider("Study Hours", 0, 16, 6)
+        financial_stress = st.slider("Financial Stress", 1, 5, 3)
+
+    with col2:
+        gender = st.selectbox("Gender", ["Male", "Female"])
+        sleep_duration = st.selectbox(
+            "Sleep Duration",
+            ["Less than 5 hours", "5-6 hours", "7-8 hours", "More than 8 hours"],
+            index=2
+        )
+        dietary_habits = st.selectbox(
+            "Dietary Habits",
+            ["Unhealthy", "Moderate", "Healthy"],
+            index=2
+        )
+        degree = st.selectbox("Degree", ["Undergraduate", "Postgraduate"], index=0)
+        suicidal_thoughts = st.selectbox("Suicidal Thoughts", ["Yes", "No"], index=0)
+        mental_illness_history = st.selectbox("Mental Illness History", ["Yes", "No"], index=0)
+
+    # Prepare input row
+    input_dict = {
+        "Age": age,
+        "Academic_Pressure": academic_pressure,
+        "CGPA": cgpa,
+        "Study_Satisfaction": study_satisfaction,
+        "Study_Hours": study_hours,
+        "Financial_Stress": financial_stress,
+        "Gender": gender,
+        "Sleep_Duration": sleep_duration,
+        "Dietary_Habits": dietary_habits,
+        "Degree": degree,
+        "Suicidal_Thoughts": suicidal_thoughts,
+        "Mental_Illness_History": mental_illness_history
+    }
+
+
+    # Predict button
+    full_width_container = st.container()
+
+    with full_width_container:
+        predict_clicked = st.button("PREDICT",use_container_width=True)
+
+    if predict_clicked:
+        final_pred, base_outputs = run_prediction(input_dict)
+
+        # Risk message
+        if final_pred > 0.5:
+            st.markdown(f"""
+                <div style="padding: 20px; border-radius: 10px; background-color:#ffcccc;">
+                    <h2 style="color:#cc0000;">🚨 High Risk of Depression</h2>
+                    <h3 style="color:#000000; font-size:20px;">Probability of being depressed: {final_pred:.4f}</h3>
+                </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown(f"""
+                <div style="padding: 20px; border-radius: 10px; background-color:#ccffdd;">
+                    <h2 style="color:#006600;">✅ Low Risk of Depression</h2>
+                    <h3 style="color:#000000; font-size:20px;">Probability of being depressed: {final_pred:.4f}</h3>
+                </div>
+            """, unsafe_allow_html=True)
+
+        # Base models result expander
+        st.markdown("<br>", unsafe_allow_html=True)
+        with st.expander("🔍 Show Base Model's Individual Predictions"):
+            st.json(base_outputs)
+
+
+# ------------------------------------------------------------
+#                     RIGHT SIDE IMAGE
+# ------------------------------------------------------------
+with right:
+    st.image("/workspaces/CS_Group07_StudentDepressionDetection/Data/image.jpg", use_container_width=True)
