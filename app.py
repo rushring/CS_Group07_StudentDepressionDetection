@@ -203,7 +203,7 @@ with left:
         financial_stress = st.slider("Financial Stress", 1, 5, 3)
 
     with col2:
-        gender = st.selectbox("Gender", ["Male", "Female"])
+        gender = st.selectbox("Gender", ["Male", "Female"],index=0)
         sleep_duration = st.selectbox(
             "Sleep Duration",
             ["Less than 5 hours", "5-6 hours", "7-8 hours", "More than 8 hours"],
@@ -215,8 +215,8 @@ with left:
             index=2
         )
         degree = st.selectbox("Degree", ["Undergraduate", "Postgraduate"], index=0)
-        suicidal_thoughts = st.selectbox("Suicidal Thoughts", ["Yes", "No"], index=0)
-        mental_illness_history = st.selectbox("Mental Illness History", ["Yes", "No"], index=0)
+        suicidal_thoughts = st.selectbox("Suicidal Thoughts", ["Yes", "No"], index=1)
+        mental_illness_history = st.selectbox("Mental Illness History", ["Yes", "No"], index=1)
 
     # Prepare input row
     input_dict = {
