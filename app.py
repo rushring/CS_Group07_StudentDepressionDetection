@@ -203,7 +203,7 @@ with left:
         financial_stress = st.slider("Financial Stress", 1, 5, 3)
 
     with col2:
-        gender = st.selectbox("Gender", ["Male", "Female"])
+        gender = st.selectbox("Gender", ["Male", "Female"],index=0)
         sleep_duration = st.selectbox(
             "Sleep Duration",
             ["Less than 5 hours", "5-6 hours", "7-8 hours", "More than 8 hours"],
