@@ -207,7 +207,7 @@ with left:
         sleep_duration = st.selectbox(
             "Sleep Duration",
             ["Less than 5 hours", "5-6 hours", "7-8 hours", "More than 8 hours"],
-            index=2
+            index=1
         )
         dietary_habits = st.selectbox(
             "Dietary Habits",
@@ -215,8 +215,8 @@ with left:
             index=2
         )
         degree = st.selectbox("Degree", ["Undergraduate", "Postgraduate"], index=0)
-        suicidal_thoughts = st.selectbox("Suicidal Thoughts", ["Yes", "No"], index=0)
-        mental_illness_history = st.selectbox("Mental Illness History", ["Yes", "No"], index=0)
+        suicidal_thoughts = st.selectbox("Suicidal Thoughts", ["Yes", "No"], index=1)
+        mental_illness_history = st.selectbox("Mental Illness History", ["Yes", "No"], index=1)
 
     # Prepare input row
     input_dict = {
